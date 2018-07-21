@@ -30,3 +30,10 @@
 *.exe
 *.out
 *.app
+
+# Build folders
+*/build
+*/builds
+
+# cmake user
+*.user
