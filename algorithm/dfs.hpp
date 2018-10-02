@@ -4,7 +4,7 @@
 #include <vector>
 #include <stack>
 
-// graph - список смежности, отсчёт с 0
+// graph - Adjacency list
 void dfs(std::vector<std::vector<size_t>> const& graph, size_t start_v = 0) {
     std::vector<bool> visit(graph.size(), false);
 
@@ -14,6 +14,8 @@ void dfs(std::vector<std::vector<size_t>> const& graph, size_t start_v = 0) {
     };
 
     std::stack<Node> s;
+
+    visit[start_v] = true;
     s.push({start_v, 0});
 
     while(!s.empty()) {
@@ -22,8 +24,10 @@ void dfs(std::vector<std::vector<size_t>> const& graph, size_t start_v = 0) {
         for(; idx < graph[v].size(); ++idx) {
             if(!visit[idx]) {
 
-                // посещение v->idx
+                // visiting v->idx
+                // something....
 
+                visit[idx] = true;
                 s.push({idx, 0});
                 ++idx;
                 break;
