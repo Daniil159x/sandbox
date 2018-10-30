@@ -24,7 +24,6 @@ def encode(data):
             res[i] += [data[idx:idx+mod]]
             
     arr = np.array(res)
-    print(arr)
     return Image.fromarray(arr, PNGmode)
 
 
@@ -39,8 +38,8 @@ if __name__ == "__main__":
     if not isEncode: # decode
         with Image.open(input("Decode: ")) as toDecode, open("result.decode", "bw") as res:
             res.write( decode( toDecode.convert(PNGmode) ) )
+            print("Created result.decode")
     else: # encode
         with open(input("Encode: "), "br") as toEncode:
-            tx = toEncode.read()
-            print(tx)
-            encode( tx ).save("result.png")
+            encode( toEncode.read() ).save("result.png")
+            print("Created result.png")
